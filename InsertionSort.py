@@ -4,9 +4,10 @@ API: insertion_sort(sample_str)
 '''
 
 # TODO 1: Add better degugging
-# TODO 2: Use better constants
 
 sample_str = list('insertionsort')
+STRING_START_INDX = 0
+INDX_DECREMENT = -1
 
 def swap_chars(unsorted_str, indx1, indx2):
     temp_char = unsorted_str[indx1]
@@ -24,7 +25,7 @@ def insertion_sort(unsorted_str):
     '''
 
     for unsorted_indx in range(1, len(unsorted_str)):
-        for sorted_indx in range(unsorted_indx, 0, -1):
+        for sorted_indx in range(unsorted_indx, STRING_START_INDX, INDX_DECREMENT):
 
             if unsorted_str[sorted_indx] < unsorted_str[sorted_indx -1]:
                 # swap it in that spot

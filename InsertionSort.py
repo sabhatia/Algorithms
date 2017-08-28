@@ -3,7 +3,8 @@ An implementation of insertion sort
 API: insertion_sort(sample_str)
 '''
 
-# TODO: Add better degugging
+# TODO 1: Add better degugging
+# TODO 2: Use better constants
 
 sample_str = list('insertionsort')
 

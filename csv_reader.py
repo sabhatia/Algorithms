@@ -30,29 +30,30 @@ def test_csv_read_write():
     print "Contents: "
     read_csv_file(csv_file_name)
 
-def list_prefix(prefix_str, list):
-    for elem in list:
-        elem
+def main():
+    # Read number of columns user wants and create a list with that many columns
+    columns = int(input('How many columns per row ?'))
+    keep_going = True
 
-# Read number of columns user wants and create a list with that many columns
-columns = int(input('How many columns per row ?'))
-keep_going = True
+    generated_lst = list()
+    col = list()
+    col_limit = 0
+    csv_file_name = 'row_col.csv'
 
-generated_lst = list()
-col = list()
-col_limit = 0
-csv_file_name = 'row_col.csv'
+    while keep_going:
+        col = ["Colum: " + str(col_indx + 1) for col_indx in range(col_limit, col_limit + columns)]
+        print(col_limit, col_limit + columns)
+        col_limit += columns
 
-while keep_going:
-    col = ["Colum: " + str(col_indx +  1) for col_indx in range(col_limit, col_limit + columns)]
-    print(col_limit, col_limit+columns)
-    col_limit += columns
+        generated_lst.append(col)
 
-    generated_lst.append(col)
+        if (raw_input("Keep Going? (Y/N)").lower()) != 'y':
+            keep_going = False
 
-    if (raw_input("Keep Going? (Y/N)").lower()) != 'y':
-        keep_going = False
+        print('Current list: ', generated_lst)
+        write_csv_file(csv_file_name, generated_lst)
+        read_csv_file(csv_file_name)
 
-    print('Current list: ', generated_lst)
-    write_csv_file(csv_file_name, generated_lst)
-    read_csv_file(csv_file_name)
+if __name__ == '__main__':
+    main()
+

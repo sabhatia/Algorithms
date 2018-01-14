@@ -5,7 +5,6 @@ def read_csv_file(filename):
     with open(filename, 'r+') as csv_file:
         reader = csv.reader(csv_file)
 
-        read_lst = list()
         for read_str in reader:
             print(read_str)
 
